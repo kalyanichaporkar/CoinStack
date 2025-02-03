@@ -1,72 +1,101 @@
 import React from "react";
-// import Portfolio from "./Portfolio";
 import Navbar from "./Navbar";
 
 const Homepage = () => {
   return (
-    <div style={styles.container}>
+    <div className="homepage-container">
       {/* Navbar */}
       <Navbar />
-      
+
       {/* Hero Section */}
-      <div style={styles.heroSection}>
-        <h1 style={styles.heading}>Welcome to Stock Management & Visualization</h1>
-        <p style={styles.description}>
+      <div className="hero-section">
+        <h1 className="heading">Welcome to Stock Management & Visualization</h1>
+        <p className="description">
           Track, analyze, and visualize real-time stock market data with our powerful management system.
         </p>
-        <span style={styles.exploreButton}>Explore Portfolio</span>
+        <span className="explore-button">Explore Portfolio</span>
       </div>
+
+      <style>
+        {`
+          /* Global styles */
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+          }
+
+          body {
+            background-color: #1f2937;
+            color: #d1d5db;
+          }
+
+          /* Container for the homepage */
+          .homepage-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 80px; /* Adds space for the fixed navbar */
+          }
+
+          /* Hero Section */
+          .hero-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+            text-align: center;
+            background-color:rgb(6, 20, 78); /* Solid background color */
+            padding: 0 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+          }
+
+          /* Heading Style */
+          .heading {
+            font-size: 3rem; /* Larger font size */
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Added text shadow for better readability */
+          }
+
+          /* Description Style */
+          .description {
+            font-size: 1.25rem;
+            color: #e5e7eb;
+            max-width: 40rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            font-weight: 400;
+          }
+
+          /* Explore Button Style */
+          .explore-button {
+            padding: 1rem 2rem;
+            background-color: #4caf50;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+          }
+
+          /* Hover Effect for Explore Button */
+          .explore-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+          }
+        `}
+      </style>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    minHeight: "100vh",
-    backgroundColor: "#f3f4f6",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    paddingTop: "80px", // Adds space for the fixed navbar
-  },
-  heroSection: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "80vh",
-    textAlign: "center",
-    padding: "0 20px", // Padding for mobile responsiveness
-  },
-  heading: {
-    fontSize: "2.8rem", // Larger font size for the heading
-    fontWeight: "700",
-    color: "#1e40af",
-    marginBottom: "1.5rem", // More space after the heading
-    letterSpacing: "1px", // Adds slight letter spacing for better readability
-  },
-  description: {
-    fontSize: "1.125rem",
-    color: "#4b5563",
-    maxWidth: "40rem",
-    marginBottom: "2rem", // Added margin for spacing between description and button
-    lineHeight: "1.6", // Increased line height for better readability
-  },
-  exploreButton: {
-    padding: "1rem 2rem",
-    backgroundColor: "#4CAF50", // Changed to a green shade
-    color: "white",
-    fontSize: "1.1rem",
-    fontWeight: "500",
-    borderRadius: "5px",
-    cursor: "pointer",
-    transition: "background-color 0.3s ease, transform 0.3s ease", // Added transition for smooth hover effect
-    ":hover": {
-      backgroundColor: "#45a049", // Darker green on hover
-      transform: "scale(1.05)", // Slight zoom-in effect on hover
-    },
-  },
 };
 
 export default Homepage;

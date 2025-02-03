@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 // Static form with options for buying and selling stocks
-const ApiConnectivity= () => {
+const ApiConnectivity = () => {
   const [stockData, setStockData] = useState([]);
   const [selectedStock, setSelectedStock] = useState("");
   const [quantity, setQuantity] = useState(1);
@@ -51,17 +51,17 @@ const ApiConnectivity= () => {
   };
 
   return (
-    <div style={styles.container}>
+    <div className="api-container">
       <h2>Buy/Sell Stocks</h2>
-      <form onSubmit={handleSubmit} style={styles.form}>
+      <form onSubmit={handleSubmit} className="form">
         {/* Stock Dropdown */}
-        <div style={styles.inputGroup}>
-          <label htmlFor="stock" style={styles.label}>Select Stock:</label>
+        <div className="input-group">
+          <label htmlFor="stock" className="label">Select Stock:</label>
           <select
             id="stock"
             value={selectedStock}
             onChange={handleStockSelect}
-            style={styles.input}
+            className="input"
           >
             <option value="">Select a Stock</option>
             {stockData.map((stock) => (
@@ -73,13 +73,13 @@ const ApiConnectivity= () => {
         </div>
 
         {/* Action Dropdown (Buy/Sell) */}
-        <div style={styles.inputGroup}>
-          <label htmlFor="action" style={styles.label}>Action:</label>
+        <div className="input-group">
+          <label htmlFor="action" className="label">Action:</label>
           <select
             id="action"
             value={action}
             onChange={handleActionSelect}
-            style={styles.input}
+            className="input"
           >
             <option value="">Select Action</option>
             <option value="buy">Buy</option>
@@ -88,72 +88,115 @@ const ApiConnectivity= () => {
         </div>
 
         {/* Quantity Input */}
-        <div style={styles.inputGroup}>
-          <label htmlFor="quantity" style={styles.label}>Quantity:</label>
+        <div className="input-group">
+          <label htmlFor="quantity" className="label">Quantity:</label>
           <input
             type="number"
             id="quantity"
             value={quantity}
             onChange={handleQuantityChange}
-            style={styles.input}
+            className="input"
             min="1"
           />
         </div>
 
         {/* Submit Button */}
-        <button type="submit" style={styles.submitButton}>Submit</button>
+        <button type="submit" className="submit-button">Submit</button>
       </form>
+
+      <style>
+        {`
+          /* Global styles */
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+          }
+
+          body {
+            background-color: #1f2937;
+            color: #d1d5db;
+          }
+
+          /* Container for the stock buy/sell page */
+          .api-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            padding-top: 60px; /* Ensures the content doesn't overlap with the navbar */
+          }
+
+          /* Form container */
+          .form {
+            background-color: #2d3748;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+          }
+
+          /* Heading style */
+          h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 600;
+            color: #fff;
+          }
+
+          /* Input group styles */
+          .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.5rem;
+          }
+
+          /* Label style */
+          .label {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #fff;
+          }
+
+          /* Input style */
+          .input {
+            padding: 0.75rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+            width: 100%;
+          }
+
+          /* Submit button style */
+          .submit-button {
+            padding: 0.75rem 2rem;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            width: 100%;
+          }
+
+          /* Hover effect for submit button */
+          .submit-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+          }
+        `}
+      </style>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    minHeight: "100vh",
-    backgroundColor: "#f9fafb",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "2rem",
-  },
-  form: {
-    width: "100%",
-    maxWidth: "500px",
-    padding: "2rem",
-    backgroundColor: "white",
-    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-    borderRadius: "8px",
-  },
-  inputGroup: {
-    marginBottom: "1.5rem",
-  },
-  label: {
-    fontSize: "1rem",
-    fontWeight: "500",
-    marginBottom: "0.5rem",
-    color: "#4b5563",
-  },
-  input: {
-    padding: "0.75rem",
-    fontSize: "1rem",
-    borderRadius: "5px",
-    border: "1px solid #e5e7eb",
-    width: "100%",
-    boxSizing: "border-box",
-  },
-  submitButton: {
-    padding: "0.75rem 2rem",
-    backgroundColor: "#2563eb",
-    color: "white",
-    fontSize: "1.1rem",
-    fontWeight: "500",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    transition: "background-color 0.3s ease, transform 0.3s ease",
-    width: "100%",
-  },
 };
 
 export default ApiConnectivity;

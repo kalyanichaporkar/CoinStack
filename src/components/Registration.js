@@ -28,19 +28,19 @@ const Registration = () => {
   };
 
   return (
-    <div style={styles.container}>
+    <div className="registration-container">
       <Navbar />
-      <div style={styles.formContainer}>
-        <h2 style={styles.heading}>Registration Page</h2>
-        <form onSubmit={handleSubmit} style={styles.form}>
+      <div className="form-container">
+        <h2 className="heading">Registration Page</h2>
+        <form onSubmit={handleSubmit} className="form">
           {/* User Type Dropdown */}
-          <div style={styles.inputGroup}>
-            <label htmlFor="userType" style={styles.label}>User Type:</label>
+          <div className="input-group">
+            <label htmlFor="userType" className="label">User Type:</label>
             <select
               id="userType"
               value={userType}
               onChange={(e) => setUserType(e.target.value)}
-              style={styles.select}
+              className="select"
             >
               <option value="user">User</option>
               <option value="admin">Admin</option>
@@ -48,8 +48,8 @@ const Registration = () => {
           </div>
 
           {/* Full Name Input */}
-          <div style={styles.inputGroup}>
-            <label htmlFor="fullName" style={styles.label}>Full Name:</label>
+          <div className="input-group">
+            <label htmlFor="fullName" className="label">Full Name:</label>
             <input
               type="text"
               id="fullName"
@@ -57,13 +57,13 @@ const Registration = () => {
               placeholder="Enter your full name"
               value={formData.fullName}
               onChange={handleChange}
-              style={styles.input}
+              className="input"
             />
           </div>
 
           {/* Email Input */}
-          <div style={styles.inputGroup}>
-            <label htmlFor="email" style={styles.label}>Email:</label>
+          <div className="input-group">
+            <label htmlFor="email" className="label">Email:</label>
             <input
               type="email"
               id="email"
@@ -71,13 +71,13 @@ const Registration = () => {
               placeholder="Enter your email"
               value={formData.email}
               onChange={handleChange}
-              style={styles.input}
+              className="input"
             />
           </div>
 
           {/* Password Input */}
-          <div style={styles.inputGroup}>
-            <label htmlFor="password" style={styles.label}>Password:</label>
+          <div className="input-group">
+            <label htmlFor="password" className="label">Password:</label>
             <input
               type="password"
               id="password"
@@ -85,13 +85,13 @@ const Registration = () => {
               placeholder="Enter your password"
               value={formData.password}
               onChange={handleChange}
-              style={styles.input}
+              className="input"
             />
           </div>
 
           {/* ID Input */}
-          <div style={styles.inputGroup}>
-            <label htmlFor="id" style={styles.label}>ID:</label>
+          <div className="input-group">
+            <label htmlFor="id" className="label">ID:</label>
             <input
               type="text"
               id="id"
@@ -99,91 +99,124 @@ const Registration = () => {
               placeholder="Enter your ID"
               value={formData.id}
               onChange={handleChange}
-              style={styles.input}
+              className="input"
             />
           </div>
 
           {/* Submit Button */}
-          <button type="submit" style={styles.submitButton}>Register</button>
+          <button type="submit" className="submit-button">Register</button>
         </form>
       </div>
+
+      <style>
+        {`
+          /* Global styles */
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+          }
+
+          body {
+            background-color: #1f2937;
+            color: #d1d5db;
+          }
+
+          /* Container for the registration page */
+          .registration-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 20px;
+            padding-top: 60px; /* Ensures the content doesn't overlap with the navbar */
+          }
+
+          /* Form container */
+          .form-container {
+            background-color: #2d3748;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+          }
+
+          /* Heading style */
+          .heading {
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: 600;
+            color: #fff;
+          }
+
+          /* Form styles */
+          .form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+          }
+
+          /* Input group styles */
+          .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1rem;
+          }
+
+          /* Label style */
+          .label {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #fff;
+          }
+
+          /* Input style */
+          .input {
+            padding: 0.75rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+          }
+
+          /* Select dropdown style */
+          .select {
+            padding: 0.75rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box;
+          }
+
+          /* Submit button style */
+          .submit-button {
+            padding: 0.75rem 2rem;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 1.5rem;
+            align-self: center;
+          }
+
+          /* Hover effect for submit button */
+          .submit-button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+          }
+        `}
+      </style>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    minHeight: "100vh",
-    backgroundColor: "#f9fafb",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    paddingTop: "80px",
-  },
-  formContainer: {
-    width: "100%",
-    maxWidth: "600px",
-    padding: "2rem",
-    backgroundColor: "white",
-    boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-    borderRadius: "8px",
-    marginTop: "2rem",
-  },
-  heading: {
-    fontSize: "2rem",
-    fontWeight: "600",
-    textAlign: "center",
-    marginBottom: "1.5rem",
-    color: "#1e40af",
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "1.5rem",
-  },
-  inputGroup: {
-    display: "flex",
-    flexDirection: "column",
-    marginBottom: "1rem",
-  },
-  label: {
-    fontSize: "1rem",
-    fontWeight: "500",
-    marginBottom: "0.5rem",
-    color: "#4b5563",
-  },
-  input: {
-    padding: "0.75rem",
-    fontSize: "1rem",
-    borderRadius: "5px",
-    border: "1px solid #e5e7eb",
-    boxSizing: "border-box",
-  },
-  select: {
-    padding: "0.75rem",
-    fontSize: "1rem",
-    borderRadius: "5px",
-    border: "1px solid #e5e7eb",
-    boxSizing: "border-box",
-  },
-  submitButton: {
-    padding: "0.75rem 2rem",
-    backgroundColor: "#4CAF50",
-    color: "white",
-    fontSize: "1.1rem",
-    fontWeight: "500",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    transition: "background-color 0.3s ease, transform 0.3s ease",
-    marginTop: "1.5rem",
-    alignSelf: "center",
-    ":hover": {
-      backgroundColor: "#45a049",
-      transform: "scale(1.05)",
-    },
-  },
 };
 
 export default Registration;
